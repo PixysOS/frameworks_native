@@ -4871,7 +4871,7 @@ status_t SurfaceFlinger::captureScreen(const sp<IBinder>& display,
         }
     }
 
-    DisplayRenderArea renderArea(device, sourceCrop, reqHeight, reqWidth, rotation,
+    DisplayRenderArea renderArea(device, sourceCrop, reqWidth, reqHeight, rotation,
                                  captureSecureLayers);
 
     auto traverseLayers = std::bind(std::mem_fn(&SurfaceFlinger::traverseLayersInDisplay), this,
@@ -4889,7 +4889,7 @@ status_t SurfaceFlinger::captureLayers(const sp<IBinder>& layerHandleBinder,
     public:
         LayerRenderArea(SurfaceFlinger* flinger, const sp<Layer>& layer, const Rect crop,
                         int32_t reqWidth, int32_t reqHeight, bool childrenOnly)
-              : RenderArea(reqHeight, reqWidth, CaptureFill::CLEAR),
+              : RenderArea(reqWidth, reqHeight, CaptureFill::CLEAR),
                 mLayer(layer),
                 mCrop(crop),
                 mFlinger(flinger),
