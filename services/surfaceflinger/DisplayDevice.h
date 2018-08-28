@@ -355,7 +355,21 @@ public:
     int getHeight() const override { return mDevice->getHeight(); }
     int getWidth() const override { return mDevice->getWidth(); }
     bool isSecure() const override { return mAllowSecureLayers && mDevice->isSecure(); }
-    bool needsFiltering() const override { return mDevice->needsFiltering(); }
+
+    bool needsFiltering() const override {
+        if (mDevice->needsFiltering()) {
+            return true;
+        }
+
+        const Rect sourceCrop = getSourceCrop();
+        int width = sourceCrop.width();
+        int height = sourceCrop.height();
+        if (getRotationFlags() & Transform::ROT_90) {
+            std::swap(width, height);
+        }
+        return width != getReqWidth() || height != getReqHeight();
+    }
+
     Rect getSourceCrop() const override {
         const int orientation = mDevice->getInstallOrientation();
         if (orientation == DisplayState::eOrientationDefault) {
