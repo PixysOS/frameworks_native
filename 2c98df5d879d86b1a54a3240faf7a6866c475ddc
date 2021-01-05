@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "691a4a08_b7d2e96b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000009
+      },
+      "writtenOn": "2021-01-05T08:51:29Z",
+      "side": 1,
+      "message": "squashed with https://gerrit.pixysos.com/c/PixysOS/frameworks_native/+/4527",
+      "revId": "2c98df5d879d86b1a54a3240faf7a6866c475ddc",
+      "serverId": "dc9c43de-f401-424a-9bd3-945633c9f028"
+    }
+  ]
+}
